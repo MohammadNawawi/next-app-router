@@ -6,7 +6,13 @@ type ProductPage = {
 
 async function getData() {
   // const res = await fetch("https://fakestoreapi.com/products");
-  const res = await fetch("http://localhost:3000/api/product");
+  const res = await fetch("http://localhost:3000/api/product", {
+    cache: "force-cache",
+    next: {
+      // revalidate: 30, //Setiap 30 Detik dia akan memvalidasi data ulang untuk cache
+      tags: ["products"],
+    },
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch API");
