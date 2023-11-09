@@ -1,4 +1,5 @@
 import { getData } from "@/app/services/producst";
+import Image from "next/image";
 import Modal from "@/components/core/Modal";
 
 export default async function DetailProductPage(props: any) {
@@ -8,9 +9,11 @@ export default async function DetailProductPage(props: any) {
   );
   return (
     <Modal>
-      <img
+      <Image
         src={product.data.image}
-        alt=""
+        alt="product"
+        width={500}
+        height={500}
         className="w-full object-cover aspect-square col-span-2"
       />
       <div className="bg-white p-4 px-4">

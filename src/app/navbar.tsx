@@ -1,12 +1,13 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
   const { data: session, status }: { data: any; status: string } = useSession();
   return (
-    <nav className="flex bg-gray-800 py-2 px-5 justify-between">
+    <nav className="flex bg-gray-800 py-2 px-5 justify-between items-center h-100">
       <h1 className="">Navbar</h1>
       <div className="flex">
         <ul className="flex ml-5">
@@ -41,7 +42,14 @@ export default function Navbar() {
       </div>
       <div>
         {status === "authenticated" ? (
-          <div className="flex">
+          <div className="flex justify-center items-center">
+            <Image
+              src="/images/profile.jpg"
+              width={100}
+              height={100}
+              alt="profile"
+              className="w-10 h-10 rounded-full mr-3"
+            />
             <h4 className="mr-5">{session?.user.fullname}</h4>
             <button
               className="bg-white text-black rounded-md px-3 text-sm h-7 cursor-pointer"
