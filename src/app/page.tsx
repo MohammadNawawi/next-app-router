@@ -1,4 +1,18 @@
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Learn - Next App Router",
+  authors: [{ name: "Mohammad Nawawi", url: "https://mohammadnawawi.com" }],
+  // authors: [{ name: "Mohammad Nawawi", url: "http://localhost:3000" }],
+  icons: {
+    icon: "/icons/icon.png",
+  },
+  openGraph: {
+    title: "Home",
+  },
+};
 
 export default function Home() {
   return (
